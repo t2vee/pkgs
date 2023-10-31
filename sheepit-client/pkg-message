@@ -1,0 +1,5 @@
+[
+{ type: install
+  message: "Please configure your SheepIt settings in /usr/local/etc/sheepit.conf. You can find your SheepIt username and password at https://www.sheepit-renderfarm.com/account.php"
+}
+]

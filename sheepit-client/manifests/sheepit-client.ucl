@@ -1,0 +1,16 @@
+name: "sheepit-client"
+origin: "custom/sheepit"
+version: "1.0.0"
+arch: "amd64"
+maintainer: "ports@vee.city"
+prefix: "/"
+www: "https://www.sheepit-renderfarm.com/"
+comment: "SheepIt Render Farm Client"
+desc: "A client for SheepIt, a community-driven rendering platform."
+categories: [ "graphics" ]
+deps: {
+    "openjdk11": {
+        "origin": "java/openjdk11",
+        "version": "11"
+    }
+}

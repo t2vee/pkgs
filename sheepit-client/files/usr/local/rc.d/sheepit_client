@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# PROVIDE: sheepit-client
+# REQUIRE: NETWORKING
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="sheepit"
+rcvar=sheepit_enable
+
+# Load configuration
+[ -r /usr/local/etc/sheepit-client.conf ] && . /usr/local/etc/sheepit-client.conf
+
+if [ -z "${SHEEPIT_USERNAME}" ] || [ -z "${SHEEPIT_PASSWORD}" ]; then
+    echo "Error: SHEEPIT_USERNAME and SHEEPIT_PASSWORD must be set in /usr/local/etc/sheepit.conf"
+    exit 1
+fi
+
+command="/usr/local/bin/java"
+command_args="-jar /usr/local/bin/sheepit-client-latest.jar -login ${SHEEPIT_USERNAME} -password ${SHEEPIT_PASSWORD} ${SHEEPIT_EXTRA_ARGS}"
+
+load_rc_config $name
+run_rc_command "$1"
+
